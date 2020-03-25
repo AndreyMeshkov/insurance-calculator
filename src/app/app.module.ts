@@ -8,6 +8,9 @@ import { TransportComponent } from './transport/transport.component';
 import { HealthComponent } from './health/health.component';
 import { PropertyComponent } from './property/property.component';
 import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import {FormsModule} from '@angular/forms';
     TransportComponent,
     HealthComponent,
     PropertyComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
