@@ -1,2 +1,18 @@
-
-<app-home></app-home>
+<mat-toolbar color="primary" class="navbar">
+  <div>Калькулятор страхования</div>
+  <div>
+    <a routerLink="">
+      Главная
+    </a>
+    <a routerLink="/health">
+      Здоровья
+    </a>
+    <a routerLink="/transport">
+      Транспорта
+    </a>
+    <a routerLink="/property">
+      Имущества
+    </a>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

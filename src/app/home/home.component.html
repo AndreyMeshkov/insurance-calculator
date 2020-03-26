@@ -1,14 +1,37 @@
-<app-toolbar></app-toolbar>
+<mat-grid-list cols="3">
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Здоровье</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="https://image.flaticon.com/icons/svg/1518/1518739.svg" alt="Страхование здоровья">
+      <mat-card-actions>
+        <a routerLink="/health">Подробнее</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
 
-<mat-list>
-  <mat-list-item>
-    <mat-icon>accessibility_new</mat-icon>
-    <a href="#">ЗДОРОВЬЯ</a>
-  </mat-list-item>
-  <mat-list-item> <a href="#">ТРАНСПОРТА</a> </mat-list-item>
-  <mat-list-item> <a href="#">ИМУЩЕСТВА</a> </mat-list-item>
-</mat-list>
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Транспорт</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="https://image.flaticon.com/icons/svg/1518/1518720.svg" alt="Страхование транспорта">
+      <mat-card-actions>
+        <a routerLink="/transport">Подробнее</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
 
-
-
-
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Имущество</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="https://image.flaticon.com/icons/svg/1518/1518711.svg" alt="Страхование имущества">
+      <mat-card-actions>
+        <a routerLink="/property">Подробнее</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
