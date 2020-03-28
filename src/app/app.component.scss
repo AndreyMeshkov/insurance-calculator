@@ -3,9 +3,12 @@
 }
 
 .navbar a {
-  padding-right: 4rem;
+  padding: 16px;
   color: #fff;
   text-decoration: none;
 }
 
+.active {
+  background-color: #00008b;
+}
 

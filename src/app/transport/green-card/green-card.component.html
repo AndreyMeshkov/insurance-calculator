@@ -1,0 +1,51 @@
+<h1>Зеленая карта</h1>
+<div class="container">
+  <mat-form-field>
+    <mat-label>Тип страхователя</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let type of typePolicyholder" [value]="type.value">
+        {{type.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Срок страхования</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let month of insurancePeriod" [value]="month.value">
+        {{month.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Страны выезда</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let country of countriesDeparture" [value]="country.value">
+        {{country.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Валюта оплаты взноса</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let currency of paymentCurrency" [value]="currency.value">
+        {{currency.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Объект</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let transport of typeOfTransport" [value]="transport.value">
+        {{transport.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="btn">
+  <button mat-raised-button color="primary">Рассчитать</button>
+</div>

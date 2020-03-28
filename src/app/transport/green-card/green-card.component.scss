@@ -1,0 +1,22 @@
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  width: 50%;
+}
+
+mat-form-field {
+  margin: 1.5rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
