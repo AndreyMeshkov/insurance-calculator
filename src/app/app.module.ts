@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TransportComponent } from './transport/transport.component';
 import { HealthComponent } from './health/health.component';
 import { PropertyComponent } from './property/property.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
@@ -32,7 +32,8 @@ import {MaterialModule} from './material/material.module';
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
    ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,51 +1,56 @@
 <h1>Зеленая карта</h1>
 <div class="container">
-  <mat-form-field>
-    <mat-label>Тип страхователя</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let type of typePolicyholder" [value]="type.value">
-        {{type.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Тип страхователя</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of typeOfPolicyholder" [value]="type.value">
+          {{type.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Срок страхования</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let month of insurancePeriod" [value]="month.value">
-        {{month.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Срок страхования</mat-label>
+      <mat-select formControlName="month">
+        <mat-option *ngFor="let month of insurancePeriod" [value]="month.value">
+          {{month.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Страны выезда</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let country of countriesDeparture" [value]="country.value">
-        {{country.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Страны выезда</mat-label>
+      <mat-select formControlName="country">
+        <mat-option *ngFor="let country of countryOfDeparture" [value]="country.value">
+          {{country.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Валюта оплаты взноса</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let currency of paymentCurrency" [value]="currency.value">
-        {{currency.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Валюта оплаты взноса</mat-label>
+      <mat-select formControlName="currency">
+        <mat-option *ngFor="let currency of paymentCurrency" [value]="currency.value">
+          {{currency.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Объект</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let transport of typeOfTransport" [value]="transport.value">
-        {{transport.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Объект</mat-label>
+      <mat-select formControlName="transport">
+        <mat-option *ngFor="let transport of typeOfTransport" [value]="transport.value">
+          {{transport.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="btn">
+      <button mat-raised-button color="primary" type="submit">Рассчитать</button>
+    </div>
+  </form>
+
+  <p *ngIf="costEuro">Стоимость страховки составляет {{costEuro | currency: 'EUR'}} </p>
 </div>
 
-<div class="btn">
-  <button mat-raised-button color="primary">Рассчитать</button>
-</div>
