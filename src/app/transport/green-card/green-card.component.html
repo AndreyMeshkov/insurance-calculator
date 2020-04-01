@@ -8,7 +8,10 @@
           {{type.viewValue}}
         </mat-option>
       </mat-select>
-    </mat-form-field>
+      <mat-error *ngIf="form.get('type').hasError('required')">
+        <small>Поле "Тип страхователя" не может быть пустым</small>
+      </mat-error>
+     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Срок страхования</mat-label>
@@ -17,6 +20,9 @@
           {{month.viewValue}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="form.get('month').hasError('required')">
+        <small>Поле "Срок страхования" не может быть пустым</small>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -26,6 +32,9 @@
           {{country.viewValue}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="form.get('country').hasError('required')">
+        <small>Поле "Страны выезда" не может быть пустым</small>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -35,6 +44,9 @@
           {{currency.viewValue}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="form.get('currency').hasError('required')">
+        <small>Поле "Валюта оплаты взноса" не может быть пустым</small>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -44,12 +56,17 @@
           {{transport.viewValue}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="form.get('transport').hasError('required')">
+        <small>Поле "Объект" не может быть пустым</small>
+      </mat-error>
     </mat-form-field>
 
     <div class="btn">
-      <button mat-raised-button color="primary" type="submit">Рассчитать</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Рассчитать</button>
     </div>
   </form>
+
+  <small *ngIf="form.invalid">Необходимо заполнить все поля, чтобы произвести расчет</small>
 
   <p *ngIf="costEuro">Стоимость страховки составляет {{costEuro | currency: 'EUR'}} </p>
 </div>

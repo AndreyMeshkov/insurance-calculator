@@ -15,7 +15,8 @@ mat-form-field {
   margin: 1rem;
 }
 
-.btn {
+.btn,
+small {
   display: flex;
   justify-content: center;
 }
@@ -24,4 +25,14 @@ p {
   text-align: center;
   font-size: 2rem;
   margin-top: 2rem;
+}
+
+mat-select {
+  &.ng-invalid.ng-touched {
+    color: #ff0000;
+  }
+}
+
+small {
+  color: #ff0000;
 }

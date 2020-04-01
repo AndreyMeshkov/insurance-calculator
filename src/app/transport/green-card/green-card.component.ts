@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 interface SelectForm {
   value: string;
@@ -55,7 +55,6 @@ export class GreenCardComponent implements OnInit {
 
   form: FormGroup;
   costEuro: number;
-
   constructor() { }
 
   ngOnInit(): void {
@@ -215,13 +214,7 @@ export class GreenCardComponent implements OnInit {
     const countryKey = this.form.get('country').value;
     const transportKey = this.form.get('transport').value;
     const monthKey = this.form.get('month').value;
-    const costEuro = ((costMap[countryKey])[transportKey])[monthKey];
-
+    this.costEuro = ((costMap[countryKey])[transportKey])[monthKey];
     console.log('Form submitted', this.form);
-    console.log(countryKey);
-    console.log(transportKey);
-    console.log(monthKey);
-    console.log(costEuro);
-    this.costEuro = costEuro;
   }
 }
