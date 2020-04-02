@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Rate, RateService} from '../../services/rate.service';
 
 interface SelectForm {
   value: string;
@@ -12,6 +13,11 @@ interface SelectForm {
   styleUrls: ['./green-card.component.scss']
 })
 export class GreenCardComponent implements OnInit {
+  rates: Rate[];
+  form: FormGroup;
+  costEuro: number;
+  currencyKey: string;
+  constructor(private rateService: RateService) {}
 
   typeOfPolicyholder: SelectForm[] = [
     {value: 'individual', viewValue: 'Физическое лицо'},
@@ -42,9 +48,9 @@ export class GreenCardComponent implements OnInit {
   ];
 
   paymentCurrency: SelectForm[] = [
-    {value: 'RUB', viewValue: 'RUB'},
-    {value: 'USD', viewValue: 'USD'},
-    {value: 'EUR', viewValue: 'EUR'}
+    {value: 'rub', viewValue: 'RUB'},
+    {value: 'usd', viewValue: 'USD'},
+    {value: 'eur', viewValue: 'EUR'}
   ];
 
   typeOfTransport: SelectForm[] = [
@@ -52,21 +58,6 @@ export class GreenCardComponent implements OnInit {
     {value: 'truck', viewValue: 'Грузовой автомобиль'},
     {value: 'motorcycle', viewValue: 'Мотоцикл'}
   ];
-
-  form: FormGroup;
-  costEuro: number;
-  constructor() { }
-
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      type: new FormControl('', Validators.required),
-      month: new FormControl('', Validators.required),
-      country: new FormControl('', Validators.required),
-      currency: new FormControl('', Validators.required),
-      transport: new FormControl('', Validators.required)
-    });
-  }
-
   submit() {
     const costMap = {
       all: {
@@ -214,7 +205,26 @@ export class GreenCardComponent implements OnInit {
     const countryKey = this.form.get('country').value;
     const transportKey = this.form.get('transport').value;
     const monthKey = this.form.get('month').value;
+    const currencyKey = this.form.get('currency').value;
     this.costEuro = ((costMap[countryKey])[transportKey])[monthKey];
+    this.currencyKey = currencyKey;
     console.log('Form submitted', this.form);
+    console.log('currency', currencyKey);
+    }
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      type: new FormControl('', Validators.required),
+      month: new FormControl('', Validators.required),
+      country: new FormControl('', Validators.required),
+      currency: new FormControl('', Validators.required),
+      transport: new FormControl('', Validators.required)
+    });
+    this.rateService.getRate()
+      .subscribe(rates => {
+        this.rates = rates;
+        console.log('rates', rates);
+      });
   }
+
+
 }

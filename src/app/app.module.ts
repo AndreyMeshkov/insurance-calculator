@@ -14,6 +14,7 @@ import { GreenCardComponent } from './transport/green-card/green-card.component'
 import { CascoComponent } from './transport/casco/casco.component';
 import { OsgoComponent } from './transport/osgo/osgo.component';
 import {MaterialModule} from './material/material.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MaterialModule} from './material/material.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
    ],
   providers: [],
   bootstrap: [AppComponent]
