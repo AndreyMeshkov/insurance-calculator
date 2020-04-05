@@ -69,7 +69,7 @@
   <small *ngIf="form.invalid">Необходимо заполнить все поля, чтобы произвести расчет</small>
 
   <div *ngIf="costEuro">
-    <div class='row' [ngSwitch]="currencyKey">
+    <div [ngSwitch]="currencyKey">
       <div *ngSwitchCase="'rub'">
         <p>Стоимость страховки составляет
           {{costEuro  * ((rates[5].curRate/rates[5].curScale) / (rates[16].curRate / rates[16].curScale)) |

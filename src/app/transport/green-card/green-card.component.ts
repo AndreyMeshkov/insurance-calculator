@@ -208,8 +208,6 @@ export class GreenCardComponent implements OnInit {
     const currencyKey = this.form.get('currency').value;
     this.costEuro = ((costMap[countryKey])[transportKey])[monthKey];
     this.currencyKey = currencyKey;
-    console.log('Form submitted', this.form);
-    console.log('currency', currencyKey);
     }
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -222,7 +220,6 @@ export class GreenCardComponent implements OnInit {
     this.rateService.getRate()
       .subscribe(rates => {
         this.rates = rates;
-        console.log('rates', rates);
       });
   }
 
