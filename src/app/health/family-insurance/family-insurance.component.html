@@ -1,0 +1,85 @@
+<h1>Страхование от несчастных случаев</h1>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="wrap">
+      <div class="column">
+        <mat-form-field>
+          <mat-label>Срок страхования</mat-label>
+          <mat-select formControlName="periodControl">
+            <mat-option *ngFor="let period of periods" [value]="period.value">
+              {{period.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('periodControl').hasError('required')">
+            <small>Поле "Срок страхования" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Оплата взноса единовременно или в рассрочку</mat-label>
+          <mat-select formControlName="numControl">
+            <mat-option *ngFor="let num of numberOfPayments" [value]="num.value">
+              {{num.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('numControl').hasError('required')">
+            <small>Поле "Оплата взноса единовременно или в рассрочку" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Вы являетесь держателем дисконтных карт наших партнеров?</mat-label>
+          <mat-select formControlName="cardControl">
+            <mat-option *ngFor="let card of discountCard" [value]="card.value">
+              {{card.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('cardControl').hasError('required')">
+            <small>Поле "Дисконтные карты" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Количество застрахованных лиц</mat-label>
+          <mat-select formControlName="numberControl">
+            <mat-option *ngFor="let num of numberOfPersons" [value]="num.value">
+              {{num.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('numberControl').hasError('required')">
+            <small>Поле "Участие в спортивных соревнованиях или активный отдых" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Размер страховой суммы на каждое Застрахованное лицо (USD)</mat-label>
+          <mat-select formControlName="amountControl">
+            <mat-option *ngFor="let amount of amounts" [value]="amount.value">
+              {{amount.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('amountControl').hasError('required')">
+            <small>Поле "Размер страховой суммы" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Рассчитать</button>
+    </div>
+  </form>
+
+  <small *ngIf="form.invalid">Необходимо заполнить все поля, чтобы произвести расчет</small>
+
+  <div *ngIf="cost">
+    <div *ngIf="cost !== cost / numCoefficient / periodCoefficient;else elseBlock">
+      <p>Платеж при заключении договора {{cost / numCoefficient / periodCoefficient | currency: 'BYN' : 'symbol':'1.0-2'}}</p>
+      <p>Всего по договору страхования {{cost | currency: 'BYN' : 'symbol':'1.0-2'}}</p>
+    </div>
+    <ng-template #elseBlock>
+      <p>Всего по договору страхования {{cost | currency: 'BYN' : 'symbol':'1.0-2'}}</p>
+    </ng-template>
+  </div>
+</div>
+

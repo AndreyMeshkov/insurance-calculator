@@ -10,6 +10,10 @@ import {OsgoComponent} from './transport/osgo/osgo.component';
 import {CascoComponent} from './transport/casco/casco.component';
 import {ApartmentComponent} from './property/apartment/apartment.component';
 import {AccidentComponent} from './health/accident/accident.component';
+import {FamilyInsuranceComponent} from './health/family-insurance/family-insurance.component';
+import {AbroadComponent} from './health/abroad/abroad.component';
+import {ResponsibilityComponent} from './property/responsibility/responsibility.component';
+import {BuildingComponent} from './property/building/building.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,6 +26,10 @@ const routes: Routes = [
   {path: 'transport/casco', component: CascoComponent},
   {path: 'property/apartment', component: ApartmentComponent},
   {path: 'health/accident', component: AccidentComponent},
+  {path: 'health/family-insurance', component: FamilyInsuranceComponent},
+  {path: 'health/abroad', component: AbroadComponent},
+  {path: 'property/responsibility', component: ResponsibilityComponent},
+  {path: 'property/building', component: BuildingComponent},
   {path: '**', redirectTo: 'error'}
 ];
 

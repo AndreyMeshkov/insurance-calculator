@@ -17,6 +17,10 @@ import {MaterialModule} from './material/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ApartmentComponent } from './property/apartment/apartment.component';
 import { AccidentComponent } from './health/accident/accident.component';
+import { FamilyInsuranceComponent } from './health/family-insurance/family-insurance.component';
+import { AbroadComponent } from './health/abroad/abroad.component';
+import { ResponsibilityComponent } from './property/responsibility/responsibility.component';
+import { BuildingComponent } from './property/building/building.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { AccidentComponent } from './health/accident/accident.component';
     OsgoComponent,
     ApartmentComponent,
     AccidentComponent,
+    FamilyInsuranceComponent,
+    AbroadComponent,
+    ResponsibilityComponent,
+    BuildingComponent,
    ],
   imports: [
     BrowserModule,
