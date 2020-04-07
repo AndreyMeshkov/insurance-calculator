@@ -16,6 +16,7 @@ import { OsgoComponent } from './transport/osgo/osgo.component';
 import {MaterialModule} from './material/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ApartmentComponent } from './property/apartment/apartment.component';
+import { AccidentComponent } from './health/accident/accident.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ApartmentComponent } from './property/apartment/apartment.component';
     CascoComponent,
     OsgoComponent,
     ApartmentComponent,
+    AccidentComponent,
    ],
   imports: [
     BrowserModule,

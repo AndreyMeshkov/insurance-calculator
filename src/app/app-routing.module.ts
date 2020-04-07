@@ -9,6 +9,7 @@ import {GreenCardComponent} from './transport/green-card/green-card.component';
 import {OsgoComponent} from './transport/osgo/osgo.component';
 import {CascoComponent} from './transport/casco/casco.component';
 import {ApartmentComponent} from './property/apartment/apartment.component';
+import {AccidentComponent} from './health/accident/accident.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,10 +17,11 @@ const routes: Routes = [
   {path: 'property', component: PropertyComponent},
   {path: 'transport', component: TransportComponent},
   {path: 'error', component: ErrorComponent},
-  {path: 'green-card', component: GreenCardComponent},
-  {path: 'osgo', component: OsgoComponent},
-  {path: 'casco', component: CascoComponent},
-  {path: 'apartment', component: ApartmentComponent},
+  {path: 'transport/green-card', component: GreenCardComponent},
+  {path: 'transport/osgo', component: OsgoComponent},
+  {path: 'transport/casco', component: CascoComponent},
+  {path: 'property/apartment', component: ApartmentComponent},
+  {path: 'health/accident', component: AccidentComponent},
   {path: '**', redirectTo: 'error'}
 ];
 
