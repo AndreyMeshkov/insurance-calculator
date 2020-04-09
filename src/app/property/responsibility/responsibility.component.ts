@@ -65,7 +65,7 @@ export class ResponsibilityComponent implements OnInit {
 
   location: SelectForm[] = [
     {value: 1, viewValue: 'Городская местность(города и поселки городского типа)'},
-    {value: 0.8, viewValue: 'Сельская местность(сельские населенные пункты'}
+    {value: 0.8, viewValue: 'Сельская местность(сельские населенные пункты)'}
   ];
 
   submit() {

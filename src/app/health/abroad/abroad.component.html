@@ -1,1 +1,134 @@
-<p>abroad works!</p>
+<h1>Страхование болезней и несчастных случаев при выезде за границу</h1>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="wrap">
+      <div class="column">
+        <mat-form-field>
+          <mat-label>Продолжительность поездки (в днях)</mat-label>
+          <input matInput value="text" formControlName="periodControl">
+          <mat-error *ngIf="form.get('periodControl').hasError('required')">
+            <small>Поле "Продолжительность поездки (в днях)" не может быть пустым</small>
+          </mat-error>
+          <mat-error *ngIf="form.get('periodControl').hasError('pattern')">
+            <small>Поле "Продолжительность поездки (в днях)" должно содержать только цифры</small>
+          </mat-error>
+          <mat-error *ngIf="form.get('periodControl').hasError('max')">
+            <small>Поле "Продолжительность поездки (в днях)" не может быть больше 365 дней</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Страховое покрытие (страховая сумма)</mat-label>
+          <mat-select formControlName="amountControl">
+            <mat-option *ngFor="let amount of amounts" [value]="amount.value">
+              {{amount.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('amountControl').hasError('required')">
+            <small>Поле "Страховое покрытие (страховая сумма)" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Валюта договора страхования</mat-label>
+          <mat-select formControlName="currencyControl">
+            <mat-option *ngFor="let currency of paymentCurrency" [value]="currency.value">
+              {{currency.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('currencyControl').hasError('required')">
+            <small>Поле "Валюта договора страхования" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Направление поездки (страны, планируемые для посещения):</mat-label>
+          <mat-select formControlName="countryControl">
+            <mat-option *ngFor="let country of countries" [value]="country.value">
+              {{country.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('countryControl').hasError('required')">
+            <small>Поле "Направление поездки (страны, планируемые для посещения):" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Вы ранее заключали договор с ЗАСО «Промтрансинвест» по данному виду страхования?</mat-label>
+          <mat-select formControlName="repeatControl">
+            <mat-option *ngFor="let repeat of repeats" [value]="repeat.value">
+              {{repeat.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('repeatControl').hasError('required')">
+            <small>Поле "Вы ранее заключали договор с ЗАСО «Промтрансинвест» по данному виду страхования?" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="column">
+        <mat-form-field>
+          <mat-label>Вы являетесь держателем дисконтных карт наших партнеров?</mat-label>
+          <mat-select formControlName="cardControl">
+            <mat-option *ngFor="let card of discountCard" [value]="card.value">
+              {{card.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('cardControl').hasError('required')">
+            <small>Поле "Дисконтные карты" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Вы являетесь держателем дисконтных карт наших партнеров?</mat-label>
+          <mat-select formControlName="ageControl">
+            <mat-option *ngFor="let age of ages" [value]="age.value">
+              {{age.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('ageControl').hasError('required')">
+            <small>Поле "Дисконтные карты" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Профессиональный водитель, выполняющий международные перевозки (пассажиров, грузов)</mat-label>
+          <mat-select formControlName="driverControl">
+            <mat-option *ngFor="let driver of drivers" [value]="driver.value">
+              {{driver.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('driverControl').hasError('required')">
+            <small>Поле "Профессиональный водитель, выполняющий международные перевозки (пассажиров, грузов)" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Профессиональный спортсмен, тренер (инструктор), стажер инструктора, учащийся или воспитанник ДЮСШ</mat-label>
+          <mat-select formControlName="sportsmanControl">
+            <mat-option *ngFor="let sportsman of sportsmen" [value]="sportsman.value">
+              {{sportsman.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('sportsmanControl').hasError('required')">
+            <small>Поле "Профессиональный спортсмен, тренер (инструктор), стажер инструктора, учащийся или воспитанник ДЮСШ" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Рассчитать</button>
+    </div>
+  </form>
+
+  <small *ngIf="form.invalid">Необходимо заполнить все поля, чтобы произвести расчет</small>
+
+  <div *ngIf="cost">
+    <div *ngIf="cost">
+      <p>Всего по договору страхования {{cost | currency: 'BYN' : 'symbol':'1.0-2'}}</p>
+    </div>
+  </div>
+</div>
+
+
