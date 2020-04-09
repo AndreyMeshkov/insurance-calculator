@@ -84,13 +84,13 @@ export class AccidentComponent implements OnInit {
 
     switch (currencyValue) {
       case 'rub':
-        this.currencyCoefficient = (this.rates[16].curRate / this.rates[16].curScale);
+        this.currencyCoefficient = (this.rates[2].curRate / this.rates[2].curScale);
         break;
       case 'usd':
-        this.currencyCoefficient = (this.rates[4].curRate / this.rates[4].curScale);
+        this.currencyCoefficient = (this.rates[0].curRate / this.rates[0].curScale);
         break;
       case 'eur':
-        this.currencyCoefficient = (this.rates[5].curRate / this.rates[5].curScale);
+        this.currencyCoefficient = (this.rates[1].curRate / this.rates[1].curScale);
         break;
       default:
         this.currencyCoefficient = 1;

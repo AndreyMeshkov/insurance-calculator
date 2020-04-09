@@ -27,6 +27,11 @@ export class RateService {
               curRate: rate.Cur_OfficialRate,
               curAbbreviation: rate.Cur_Abbreviation
             };
+          })
+            .filter((rate: any) => {
+             if (rate.curAbbreviation === 'USD' || rate.curAbbreviation === 'EUR' || rate.curAbbreviation === 'RUB') {
+              return rate;
+            }
           });
         }));
     }

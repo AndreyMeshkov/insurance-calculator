@@ -72,7 +72,7 @@ export class FamilyInsuranceComponent implements OnInit {
 
     this.numCoefficient = this.form.get('numControl').value;
     this.periodCoefficient = this.form.get('periodControl').value;
-    this.currencyCoefficient = (this.rates[4].curRate / this.rates[4].curScale);
+    this.currencyCoefficient = (this.rates[0].curRate / this.rates[0].curScale);
 
     this.cost = this.periodCoefficient * this.currencyCoefficient * cardCoefficient * tariff;
   }

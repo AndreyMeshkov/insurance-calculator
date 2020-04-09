@@ -72,12 +72,12 @@
     <div [ngSwitch]="currencyKey">
       <div *ngSwitchCase="'rub'">
         <p>Стоимость страховки составляет
-          {{costEuro  * ((rates[5].curRate/rates[5].curScale) / (rates[16].curRate / rates[16].curScale)) |
+          {{costEuro  * ((rates[1].curRate/rates[1].curScale) / (rates[2].curRate / rates[2].curScale)) |
           currency:'RUB' : 'symbol-narrow':'1.0-0'}}</p>
       </div>
       <div *ngSwitchCase="'usd'">
         <p>Стоимость страховки составляет
-          {{costEuro * ((rates[5].curRate/rates[5].curScale) / (rates[4].curRate / rates[4].curScale)) |
+          {{costEuro * ((rates[1].curRate/rates[1].curScale) / (rates[0].curRate / rates[0].curScale)) |
             currency:'USD' : 'symbol-narrow':'1.0-0'}}</p>
       </div>
       <div *ngSwitchDefault>
