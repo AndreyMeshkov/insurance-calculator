@@ -1,2 +1,45 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+mat-form-field {
+  margin: 1rem;
+}
+
+.btn,
+small {
+  display: flex;
+  justify-content: center;
+}
+
+p{
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+small {
+  color: #ff0000;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem;
+  width: 60%;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
+}
+.btn {
+  margin: 1rem;
+}
+

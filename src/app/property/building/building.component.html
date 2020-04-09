@@ -81,14 +81,14 @@
 
       <div class="column">
         <mat-form-field>
-          <mat-label>Строение приобретено Вами с привлечением кредитных средств или находится в залоге</mat-label>
+          <mat-label>Строение приобретено Вами или возведено с привлечением кредитных средств или передано в залог</mat-label>
           <mat-select formControlName="creditControl">
             <mat-option *ngFor="let credit of creditFunds" [value]="credit.value">
               {{credit.viewValue}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="form.get('creditControl').hasError('required')">
-            <small>Поле "Строение приобретено Вами с привлечением кредитных средств" не может быть пустым</small>
+            <small>Поле "Строение приобретено Вами или возведено с привлечением кредитных средств или передано в залог" не может быть пустым</small>
           </mat-error>
         </mat-form-field>
 
