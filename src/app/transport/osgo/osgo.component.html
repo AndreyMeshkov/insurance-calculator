@@ -1,1 +1,203 @@
-<p>osgo works!</p>
+<h1>Обязательное страхование гражданской ответственности владельцев ТС</h1>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="wrap">
+      <div class="column">
+        <mat-form-field>
+          <mat-label>Срок страхования</mat-label>
+          <mat-select formControlName="periodControl">
+            <mat-option *ngFor="let period of periods" [value]="period.value">
+              {{period.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('periodControl').hasError('required')">
+            <small>Поле "Срок страхования" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field  *ngIf="form.get('periodControl').value === 'twelve' || form.get('periodControl').invalid;else
+        elseNum">
+          <mat-label>Оплата взноса единовременно или в рассрочку</mat-label>
+          <mat-select formControlName="numControl">
+            <mat-option *ngFor="let num of numberOfPayments" [value]="num.value">
+              {{num.viewValue}}
+            </mat-option>
+          </mat-select >
+          <mat-error *ngIf="form.get('numControl').hasError('required')">
+            <small>Поле "Оплата взноса единовременно или в рассрочку" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+        <ng-template #elseNum>
+          <mat-form-field>
+            <mat-label>Оплата взноса единовременно или в рассрочку</mat-label>
+            <mat-select formControlName="numControl">
+              <mat-option [value]="1">
+                Единовременно
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('numControl').hasError('required')">
+              <small>Поле "Оплата взноса единовременно или в рассрочку" не может быть пустым</small>
+            </mat-error>
+          </mat-form-field>
+        </ng-template>
+
+        <mat-form-field>
+          <mat-label>Наличие льгот по договору обязательного страхования (инвалидам ВОВ и т.п.)</mat-label>
+          <mat-select formControlName="exemptionControl">
+            <mat-option *ngFor="let exemption of exemptions" [value]="exemption.value">
+              {{exemption.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('exemptionControl').hasError('required')">
+            <small>Поле "Наличие льгот по договору обязательного страхования (инвалидам ВОВ и т.п.)" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Возраст страхователя</mat-label>
+          <mat-select formControlName="ageControl">
+            <mat-option *ngFor="let age of ages" [value]="age.value">
+              {{age.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('ageControl').hasError('required')">
+            <small>Поле "Возраст страхователя" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Стаж управления ТС соответствующей категории</mat-label>
+          <mat-select formControlName="experienceControl">
+            <mat-option *ngFor="let experience of experiences" [value]="experience.value">
+              {{experience.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('experienceControl').hasError('required')">
+            <small>Поле "Стаж управления ТС соответствующей категории" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Место регистрации ТС согласно свидетельству о регистрации (тех. паспорту)</mat-label>
+          <mat-select formControlName="locationControl">
+            <mat-option *ngFor="let loc of location" [value]="loc.value">
+              {{loc.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('locationControl').hasError('required')">
+            <small>Поле "Место регистрации ТС согласно свидетельству о регистрации (тех. паспорту)" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="column">
+        <mat-form-field>
+          <mat-label>ТС используется в качестве такси</mat-label>
+          <mat-select formControlName="taxiControl">
+            <mat-option *ngFor="let taxi of taxis" [value]="taxi.value">
+              {{taxi.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('taxiControl').hasError('required')">
+            <small>Поле "ТС используется в качестве такси" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Марка ТС</mat-label>
+          <mat-select formControlName="modelControl">
+            <mat-option *ngFor="let model of models" [value]="model.value">
+              {{model.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('modelControl').hasError('required')">
+            <small>Поле "Марка ТС" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Значение коэффициента К2 (класс аварийности) по предыдущему договору</mat-label>
+          <mat-select formControlName="accidentControl">
+            <mat-option *ngFor="let accident of accidents" [value]="accident.value">
+              {{accident.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('accidentControl').hasError('required')">
+            <small>Поле "Значение коэффициента К2 (класс аварийности) по предыдущему договору" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field   *ngIf="form.get('accidentControl').value !== 'first' || form.get('accidentControl').invalid">
+          <mat-label>Предыдущий договор заключён на 1 год и полностью оплачен</mat-label>
+          <mat-select formControlName="paymentControl">
+            <mat-option *ngFor="let payment of payments" [value]="payment.value">
+              {{payment.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('paymentControl').hasError('required')">
+            <small>Поле "Предыдущий договор заключён на 1 год и полностью оплачен" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field  *ngIf="form.get('accidentControl').value !== 'first' || form.get('accidentControl').invalid">
+          <mat-label>Количество ДТП за период действия предыдущего договора</mat-label>
+          <mat-select formControlName="crashControl">
+            <mat-option *ngFor="let crash of crashes" [value]="crash.value">
+              {{crash.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('crashControl').hasError('required')">
+            <small>Поле "Количество ДТП за период действия предыдущего договора" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Рабочий объём двигателя (куб.см.)</mat-label>
+          <mat-select formControlName="engineControl">
+            <mat-option *ngFor="let engine of engines" [value]="engine.value">
+              {{engine.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('engineControl').hasError('required')">
+            <small>Поле "Рабочий объём двигателя (куб.см.)" не может быть пустым</small>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="form.invalid">
+        Рассчитать</button>
+    </div>
+  </form>
+
+  <small *ngIf="form.invalid">Необходимо заполнить все поля, чтобы произвести расчет</small>
+
+  <div *ngIf="cost">
+    <div *ngIf="cost !== cost / numberCoefficient;else elseBlock">
+      <p>
+        Платеж при заключении договора
+        {{costEuro / numberCoefficient |currency: 'EUR': 'symbol':'1.0-2'}}
+        ({{cost / numberCoefficient | currency: 'BYN' :
+        'symbol':'1.0-2'}} на {{today | date }}
+      </p>
+      <p>
+        Всего по договору страхования
+        {{costEuro |currency: 'EUR': 'symbol':'1.0-2'}}
+        ({{cost | currency: 'BYN' :
+        'symbol':'1.0-2'}} на {{today | date }}
+      </p>
+    </div>
+    <ng-template #elseBlock>
+      <p>
+        Всего по договору страхования
+        {{costEuro |currency: 'EUR': 'symbol':'1.0-2'}}
+        ({{cost | currency: 'BYN' :
+        'symbol':'1.0-2'}} на {{today | date }}
+      </p>
+    </ng-template>
+  </div>
+</div>
+
+
