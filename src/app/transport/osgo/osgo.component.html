@@ -127,7 +127,8 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field   *ngIf="form.get('accidentControl').value !== 'first' || form.get('accidentControl').invalid">
+        <mat-form-field
+          *ngIf="form.get('accidentControl').value !== 'first' || form.get('accidentControl').invalid;else payElse">
           <mat-label>Предыдущий договор заключён на 1 год и полностью оплачен</mat-label>
           <mat-select formControlName="paymentControl">
             <mat-option *ngFor="let payment of payments" [value]="payment.value">
@@ -138,8 +139,22 @@
             <small>Поле "Предыдущий договор заключён на 1 год и полностью оплачен" не может быть пустым</small>
           </mat-error>
         </mat-form-field>
+        <ng-template #payElse>
+          <mat-form-field>
+            <mat-label>Предыдущий договор заключён на 1 год и полностью оплачен</mat-label>
+            <mat-select formControlName="paymentControl">
+              <mat-option [value]="'yes'">
+                Договор заключается впервые
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('paymentControl').hasError('required')">
+              <small>Поле "Предыдущий договор заключён на 1 год и полностью оплачен" не может быть пустым</small>
+            </mat-error>
+          </mat-form-field>
+        </ng-template>
 
-        <mat-form-field  *ngIf="form.get('accidentControl').value !== 'first' || form.get('accidentControl').invalid">
+        <mat-form-field
+          *ngIf="form.get('accidentControl').value !== 'first' || form.get('accidentControl').invalid;else crashElse">
           <mat-label>Количество ДТП за период действия предыдущего договора</mat-label>
           <mat-select formControlName="crashControl">
             <mat-option *ngFor="let crash of crashes" [value]="crash.value">
@@ -150,6 +165,20 @@
             <small>Поле "Количество ДТП за период действия предыдущего договора" не может быть пустым</small>
           </mat-error>
         </mat-form-field>
+
+        <ng-template #crashElse>
+          <mat-form-field>
+            <mat-label>Количество ДТП за период действия предыдущего договора</mat-label>
+            <mat-select formControlName="crashControl">
+              <mat-option [value]="'crash0'">
+                Договор заключается впервые
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('crashControl').hasError('required')">
+              <small>Поле "Количество ДТП за период действия предыдущего договора" не может быть пустым</small>
+            </mat-error>
+          </mat-form-field>
+        </ng-template>
 
         <mat-form-field>
           <mat-label>Рабочий объём двигателя (куб.см.)</mat-label>
@@ -180,13 +209,13 @@
         Платеж при заключении договора
         {{costEuro / numberCoefficient |currency: 'EUR': 'symbol':'1.0-2'}}
         ({{cost / numberCoefficient | currency: 'BYN' :
-        'symbol':'1.0-2'}} на {{today | date }}
+        'symbol':'1.0-2'}} на {{today | date }})
       </p>
       <p>
         Всего по договору страхования
         {{costEuro |currency: 'EUR': 'symbol':'1.0-2'}}
         ({{cost | currency: 'BYN' :
-        'symbol':'1.0-2'}} на {{today | date }}
+        'symbol':'1.0-2'}} на {{today | date }})
       </p>
     </div>
     <ng-template #elseBlock>
@@ -194,7 +223,7 @@
         Всего по договору страхования
         {{costEuro |currency: 'EUR': 'symbol':'1.0-2'}}
         ({{cost | currency: 'BYN' :
-        'symbol':'1.0-2'}} на {{today | date }}
+        'symbol':'1.0-2'}} на {{today | date }})
       </p>
     </ng-template>
   </div>

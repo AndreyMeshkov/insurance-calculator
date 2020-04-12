@@ -100,10 +100,10 @@ export class OsgoComponent implements OnInit {
 
   engines: SelectForm[] = [
     {value: '1', viewValue: 'До 1200 куб.см. включительно'},
-    {value: '2', viewValue: 'От 1201 до 1800 куб.см. включительно'},
-    {value: '3', viewValue: 'От 1801 до 2500 куб.см. включительно'},
-    {value: '4', viewValue: 'От 2501 до 3500 куб.см. включительно'},
-    {value: '5', viewValue: 'От 3501 куб.см.'}
+    {value: '2', viewValue: 'От 1200 до 1800 куб.см. включительно'},
+    {value: '3', viewValue: 'От 1800 до 2500 куб.см. включительно'},
+    {value: '4', viewValue: 'От 2500 до 3500 куб.см. включительно'},
+    {value: '5', viewValue: 'От 3500 куб.см.'}
   ];
 
   crashes: SelectForm[] = [
@@ -123,18 +123,13 @@ export class OsgoComponent implements OnInit {
     const paymentValue = this.form.get('paymentControl').value;
     const crashValue = this.form.get('crashControl').value;
     let engineValue = this.form.get('engineControl').value;
-    let accidentRate;
+    const accidentRate = (((this.accidentData)[paymentValue])[crashValue])[accidentValue];
     const currency = (this.rates[1].curRate / this.rates[1].curScale);
     if (taxiValue === 'yes') { engineValue = '6'; }
 
     this.numberCoefficient = this.form.get('numControl').value;
 
     const tariff = (((this.data)[modelValue])[modelValue + engineValue])[periodValue];
-    if ( accidentValue !== 'first') {
-      accidentRate = (((this.accidentData)[paymentValue])[crashValue])[accidentValue];
-    } else {
-      accidentRate = 1;
-    }
     const coefficientThree = (ageCoefficient + experienceCoefficient - 1);
     let finalDiscount = 1 + ((accidentRate - 1) + (coefficientThree - 1) + (locationCoefficient - 1) - exemptionCoefficient);
     if (finalDiscount < 0.5) {finalDiscount = 0.5; }
