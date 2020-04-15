@@ -19,10 +19,10 @@ export class OsgoComponent implements OnInit {
   form: FormGroup;
   cost: number;
   numberCoefficient: number;
-  data: number;
-  accidentData: number;
   costEuro: number;
   today: number = Date.now();
+  private accidentData: { [p: string]: { [p: string]: { [p: string]: number } } };
+  private data: { [p: string]: { [p: string]: { [p: string]: number } } };
   constructor(private rateService: RateService,
               private osgoDataService: OsgoDataService) {}
 
@@ -126,7 +126,6 @@ export class OsgoComponent implements OnInit {
     const accidentRate = (((this.accidentData)[paymentValue])[crashValue])[accidentValue];
     const currency = (this.rates[1].curRate / this.rates[1].curScale);
     if (taxiValue === 'yes') { engineValue = '6'; }
-
     this.numberCoefficient = this.form.get('numControl').value;
 
     const tariff = (((this.data)[modelValue])[modelValue + engineValue])[periodValue];

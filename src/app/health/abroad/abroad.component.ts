@@ -18,7 +18,7 @@ export class AbroadComponent implements OnInit {
   form: FormGroup;
   cost: number;
   currencyCoefficient: number;
-  data: any;
+  private data: { [p: string]: { [p: string]: number } };
   constructor(private rateService: RateService,
               private abroadDataService: AbroadDataService) {}
 
@@ -83,7 +83,7 @@ export class AbroadComponent implements OnInit {
     const repeatCoefficient = this.form.get('repeatControl').value;
     const countryCoefficient = this.form.get('countryControl').value;
     const amountKey = this.form.get('amountControl').value;
-    const periodKey = +this.form.get('periodControl').value;
+    const periodKey = this.form.get('periodControl').value;
 
     const amountCoefficient = ((this.data)[amountKey])[periodKey];
 

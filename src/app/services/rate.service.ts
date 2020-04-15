@@ -10,7 +10,6 @@ export interface Rate {
   curAbbreviation: string;
 }
 
-
 @Injectable({
   providedIn: 'root'
 })

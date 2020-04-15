@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class OsgoDataService {
 
- private data: any = {
+ private data: {[key: string]: {[key: string]: {[key: string]: number}}} = {
   groupA: {
     // tslint:disable-next-line:max-line-length
     groupA1: {half: 1.7, one: 3.4, two: 6.0, three: 8.5, four: 10.5, five: 12.2, six: 13.7, seven: 14.9, eight: 16.0, nine: 16.7, ten: 17.5, eleven: 18.2, twelve: 18.8},
@@ -36,7 +37,7 @@ export class OsgoDataService {
   }
  };
 
- private accidentData: any = {
+ private accidentData: {[key: string]: {[key: string]: {[key: string]: number}}} = {
    yes: {
      crash0: {first: 1, c0: 0.9, c1: 0.8, c2: 0.7, c3: 0.6, c4: 0.5, c5: 0.5, h1: 1, h2: 1.2, h3: 1.5},
      crash1: {c0: 1.5, c1: 1.5, c2: 1.5, c3: 1.5, c4: 1.5, c5: 1.5, h1: 2, h2: 2, h3: 2},

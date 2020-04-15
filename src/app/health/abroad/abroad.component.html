@@ -80,14 +80,14 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Вы являетесь держателем дисконтных карт наших партнеров?</mat-label>
+          <mat-label>Возраст застрахованного лица</mat-label>
           <mat-select formControlName="ageControl">
             <mat-option *ngFor="let age of ages" [value]="age.value">
               {{age.viewValue}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="form.get('ageControl').hasError('required')">
-            <small>Поле "Дисконтные карты" не может быть пустым</small>
+            <small>Поле "Возраст застрахованного лица" не может быть пустым</small>
           </mat-error>
         </mat-form-field>
 
