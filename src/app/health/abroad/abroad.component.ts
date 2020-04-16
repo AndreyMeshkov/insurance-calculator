@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Rate, RateService} from '../../services/rate.service';
-import {AbroadDataService} from './abroad-data.service';
+import {AbroadData, AbroadDataService} from '../../services/abroad-data.service';
 
 interface SelectForm {
   value: string | number;
@@ -18,7 +18,7 @@ export class AbroadComponent implements OnInit {
   form: FormGroup;
   cost: number;
   currencyCoefficient: number;
-  private data: { [p: string]: { [p: string]: number } };
+  private data: AbroadData;
   constructor(private rateService: RateService,
               private abroadDataService: AbroadDataService) {}
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Rate, RateService} from '../../services/rate.service';
-import {OsgoDataService} from './osgo-data.service';
+import {DataObject, OsgoDataService} from '../../services/osgo-data.service';
 
 interface SelectForm {
   value: string | number;
@@ -21,8 +21,8 @@ export class OsgoComponent implements OnInit {
   numberCoefficient: number;
   costEuro: number;
   today: number = Date.now();
-  private accidentData: { [p: string]: { [p: string]: { [p: string]: number } } };
-  private data: { [p: string]: { [p: string]: { [p: string]: number } } };
+  private accidentData: DataObject;
+  private data: DataObject;
   constructor(private rateService: RateService,
               private osgoDataService: OsgoDataService) {}
 

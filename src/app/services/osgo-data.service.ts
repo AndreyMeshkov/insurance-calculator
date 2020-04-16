@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 
+export interface DataObject {
+  [key: string]: {[key: string]: {[key: string]: number}};
+}
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class OsgoDataService {
 
- private data: {[key: string]: {[key: string]: {[key: string]: number}}} = {
+ private data: DataObject = {
   groupA: {
     // tslint:disable-next-line:max-line-length
     groupA1: {half: 1.7, one: 3.4, two: 6.0, three: 8.5, four: 10.5, five: 12.2, six: 13.7, seven: 14.9, eight: 16.0, nine: 16.7, ten: 17.5, eleven: 18.2, twelve: 18.8},
