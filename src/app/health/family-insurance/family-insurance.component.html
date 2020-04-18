@@ -1,4 +1,4 @@
-<h1>Страхование от несчастных случаев</h1>
+<h1>Страхование семьи</h1>
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="wrap">
@@ -66,7 +66,8 @@
     </div>
 
     <div class="btn">
-      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Рассчитать</button>
+      <button appBackground mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Рассчитать
+      </button>
     </div>
   </form>
 

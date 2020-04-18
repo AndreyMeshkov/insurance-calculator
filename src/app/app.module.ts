@@ -6,21 +6,23 @@ import { AppComponent } from './app.component';
 import { TransportComponent } from './transport/transport.component';
 import { HealthComponent } from './health/health.component';
 import { PropertyComponent } from './property/property.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { GreenCardComponent } from './transport/green-card/green-card.component';
 import { CascoComponent } from './transport/casco/casco.component';
 import { OsgoComponent } from './transport/osgo/osgo.component';
-import {MaterialModule} from './material/material.module';
-import {HttpClientModule} from '@angular/common/http';
+import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http';
 import { ApartmentComponent } from './property/apartment/apartment.component';
 import { AccidentComponent } from './health/accident/accident.component';
 import { FamilyInsuranceComponent } from './health/family-insurance/family-insurance.component';
 import { AbroadComponent } from './health/abroad/abroad.component';
 import { ResponsibilityComponent } from './property/responsibility/responsibility.component';
 import { BuildingComponent } from './property/building/building.component';
+import { BackgroundDirective } from './shared/directives/background.directive';
+import { PageNamePipe } from './shared/pipes/page-name.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { BuildingComponent } from './property/building/building.component';
     AbroadComponent,
     ResponsibilityComponent,
     BuildingComponent,
+    BackgroundDirective,
+    PageNamePipe,
    ],
   imports: [
     BrowserModule,
