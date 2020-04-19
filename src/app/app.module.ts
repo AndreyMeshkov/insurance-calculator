@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import {SharedModule} from './shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
@@ -19,6 +19,7 @@ import { FamilyInsuranceComponent } from './health/family-insurance/family-insur
 import { AbroadComponent } from './health/abroad/abroad.component';
 import { ResponsibilityComponent } from './property/responsibility/responsibility.component';
 import { BuildingComponent } from './property/building/building.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { BuildingComponent } from './property/building/building.component';
     AbroadComponent,
     ResponsibilityComponent,
     BuildingComponent,
+    ToolbarComponent
    ],
   imports: [
     BrowserModule,
