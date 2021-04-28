@@ -1,0 +1,42 @@
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+mat-form-field {
+  margin: 1rem;
+}
+
+.btn,
+small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+p {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+small {
+  color: #ff0000;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  margin: 1rem auto;
+}
+/*# sourceMappingURL=family-insurance.component.css.map */

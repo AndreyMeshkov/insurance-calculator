@@ -1,0 +1,11 @@
+h1 {
+  font-size: 4rem;
+  margin: 4rem;
+}
+
+button {
+  background-color: #4CAF54;
+  padding: 2rem 2rem;
+  text-align: center;
+  font-size: 2rem;
+}

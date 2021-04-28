@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "osgo.component.scss"
+    ],
+    "names": [],
+    "file": "osgo.component.css"
+}

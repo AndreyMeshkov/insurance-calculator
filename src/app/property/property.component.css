@@ -1,0 +1,18 @@
+.card {
+  max-width: 200px;
+}
+
+a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+mat-card-title {
+  text-align: center;
+}
+/*# sourceMappingURL=property.component.css.map */

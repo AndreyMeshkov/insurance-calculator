@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "insurance-calculator"
+  "defaultProject": "insurance-calculator",
+  "cli": {
+    "analytics": "271a41a9-285e-43cb-ac76-7766a9df42fd"
+  }
 }

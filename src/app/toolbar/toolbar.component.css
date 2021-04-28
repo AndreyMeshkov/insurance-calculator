@@ -1,0 +1,16 @@
+.navbar {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar a {
+  padding: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.active {
+  background-color: #00008b;
+}
+/*# sourceMappingURL=toolbar.component.css.map */
